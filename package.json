@@ -1,0 +1,25 @@
+{
+  "name": "davius",
+  "version": "0.0.0",
+  "description": "The obvious DAV server",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/piranna/Davius.git"
+  },
+  "keywords": [
+    "DAV",
+    "WebDAV",
+    "oneshoot",
+    "HTTP"
+  ],
+  "author": "Jesús Leganés Combarro 'piranna' <piranna@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/piranna/Davius/issues"
+  },
+  "homepage": "https://github.com/piranna/Davius#readme"
+}
