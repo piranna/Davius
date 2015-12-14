@@ -1,14 +1,14 @@
-var readDir = require('fs').readDir
+var readdir = require('fs').readdir
 
-var oneshoot = require('oneshoot')
+var OneShoot = require('oneshoot')
 
 var finalhandler = require('finalhandler')
 var minimist     = require('minimist')
 var recv         = require('recv')
 var serveStatic  = require('serve-static')
 
-var rfc4918 = require('./rfc4918')
-var rfc4437 = require('./rfc4437')
+var rfc4437 = require('./lib/rfc4437')
+var rfc4918 = require('./lib/rfc4918')
 
 
 const HOME = process.env.HOME
@@ -27,23 +27,22 @@ var args = minimist(process.argv.slice(2),
 
 
 // Create server
-var server = createServer(args.timeout)
+var server = OneShoot(args.timeout).createServer()
 
 
 // HTTP
 var options =
 {
   dotfiles: 'allow',
-  index: function(path)
+  onIndex: function(path)
   {
     var res = this.res
 
-    readDir(path, function(error, files)
+    readdir(path, function(error, files)
     {
       if(error) return next(error)
 
-      res.setHeaders('Content-Type', 'application/json')
-      res.end(JSON.stringify(files))
+      res.end(files.join('\n'))  // https://github.com/unbit/spockfs#readdir
     })
   }
 }
