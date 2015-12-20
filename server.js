@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 var readdir = require('fs').readdir
 
 var OneShoot = require('oneshoot')
@@ -64,11 +66,5 @@ server.on('request', function(req, res)
 // Start server
 server.listen(args.port, args.hostname, function()
 {
-  var port = this.address().port
-
-  // Executed with `child_process.fork()`, send port over comunnication channel
-  if(process.send) return process.send(port)
-
-  // Running standalone, show port on stdout
-  console.log(port)
+  process.stdout.write(JSON.stringify(this.address().port))
 })
