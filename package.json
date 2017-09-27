@@ -5,7 +5,9 @@
   "main": "server.js",
   "bin": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -24,12 +26,14 @@
   },
   "homepage": "https://github.com/piranna/Davius#readme",
   "dependencies": {
-    "finalhandler": "^0.4.1",
+    "finalhandler": "^1.0.6",
     "fs-extra": "^0.26.2",
     "minimist": "^1.2.0",
     "oneshoot": "^0.0.3",
     "recv": "^0.0.0",
     "rimraf": "^2.4.4",
-    "serve-static": "piranna/serve-static"
-  }
+    "serve-static": "piranna/serve-static",
+    "snyk": "^1.41.1"
+  },
+  "snyk": true
 }
