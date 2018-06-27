@@ -5,7 +5,9 @@
   "main": "server.js",
   "bin": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -30,6 +32,8 @@
     "oneshoot": "^0.0.3",
     "recv": "^0.0.0",
     "rimraf": "^2.4.4",
-    "serve-static": "piranna/serve-static"
-  }
+    "serve-static": "piranna/serve-static",
+    "snyk": "^1.85.0"
+  },
+  "snyk": true
 }
